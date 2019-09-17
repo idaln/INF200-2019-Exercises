@@ -1,6 +1,10 @@
 
 # -*- coding: utf-8 -*-
 
+__author__ = 'Ida Lunde Naalsund'
+__email__ = 'idna@nmbu.no'
+
+
 SUITS = ('C', 'S', 'H', 'D')
 VALUES = range(1, 14)
 

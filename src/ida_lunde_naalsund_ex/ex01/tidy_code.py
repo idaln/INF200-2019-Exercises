@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from random import randint as rdint
-
 __author__ = 'Ida Lunde Naalsund'
 __email__ = 'idna@nmbu.no'
+
+
+from random import randint as rdint
 
 
 def make_user_guess():

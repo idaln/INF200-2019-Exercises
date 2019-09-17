@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+__author__ = 'Ida Lunde Naalsund'
+__email__ = 'idna@nmbu.no'
+
 
 def squares_by_comp(n):
     """Function squares the numbers in range of n that gives a remainder of 1

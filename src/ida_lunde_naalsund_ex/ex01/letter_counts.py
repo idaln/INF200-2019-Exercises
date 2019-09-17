@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+__author__ = 'Ida Lunde Naalsund'
+__email__ = 'idna@nmbu.no'
+
 
 def letter_freq(txt):
     """Function returns a dictionary with letters, symbols and digits
