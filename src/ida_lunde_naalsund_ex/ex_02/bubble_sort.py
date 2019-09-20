@@ -7,7 +7,7 @@ __email__ = "idna@nmbu.no"
 def bubble_sort(data):
     """Takes a list or tuple of numbers as input.
     Returns a copy of the list where the numbers are
-    sorted in increasing order. 
+    sorted in increasing order.
 
     :param data: List or tuple containing numbers.
     :return: Sorted list.
