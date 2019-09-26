@@ -28,26 +28,17 @@ def test_single():
 
 
 def test_odd_numbers():
-   """
+    """Checks that the correct median is returned for
+    lists with odd numbers of elements.
+    """
+    assert median([1, 2, 3, 4, 5]) == 3
 
-   """
-   pass
-
-def test_even_numbers():
-    """
-    """
-    pass
-
-def test_differently_ordered_elements():
-    """
-    """
-    pass
 
 
 def empty_list():
     """
     """
-    pass
+
 
 
 def original_data_unchanged():
