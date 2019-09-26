@@ -41,6 +41,15 @@ def test_even_numbers():
     assert median([1, 2, 3, 4]) == 2.5
 
 
+def test_differently_ordered_elements():
+    """Checks that the correct median is returned for
+    list with ordered, reverse-ordered and unordered elements
+    """
+    assert median([1, 2, 3, 4, 5]) == 3
+    assert median([5, 4, 3, 2, 1]) == 3
+    assert median([2, 4, 5, 3, 1]) == 3
+
+
 def empty_list():
     """
     """
