@@ -51,11 +51,11 @@ def test_differently_ordered_elements():
 
 
 # def test_empty_list(self):
-  #  """Checks that using an empty list
-  #  raises an ValueError
-  #  """
-  #  self.assertRaises(IndexError, median([]))
-  #  pass
+#  """Checks that using an empty list
+#  raises an ValueError
+#  """
+#  self.assertRaises(IndexError, median([]))
+#  pass
 
 
 def test_original_data_unchanged():
@@ -68,9 +68,9 @@ def test_original_data_unchanged():
 
 
 def test_tuples():
+    """Checks that function works for tuples
     """
-    """
-    pass
+    assert median((1, 2, 3, 4, 5)) == 3
 
 
 
