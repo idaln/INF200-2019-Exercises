@@ -4,11 +4,13 @@ __author__ = "Ida Lunde Naalsund"
 __email__ = "idna@nmbu.no"
 
 
-# Add comment that gives the source of the code
+import pytest
+
 
 def median(data):
     """
     Returns median of data.
+    Source: https://bit.ly/2n5qLs4
 
     :param data: An iterable of containing numbers
     :return: Median of data
@@ -16,8 +18,11 @@ def median(data):
 
     s_data = sorted(data)
     n = len(s_data)
-    return (s_data[n//2] if n % 2 == 1
-            else 0.5 * (s_data[n//2 - 1] + s_data[n//2]))
+    if n == 0:
+        raise ValueError
+    else:
+        return (s_data[n//2] if n % 2 == 1
+                else 0.5 * (s_data[n//2 - 1] + s_data[n//2]))
 
 
 def test_single():
@@ -50,19 +55,19 @@ def test_differently_ordered_elements():
     assert median([2, 4, 5, 3, 1]) == 3
 
 
-# def test_empty_list(self):
-#  """Checks that using an empty list
-#  raises an ValueError
-#  """
-#  self.assertRaises(IndexError, median([]))
-#  pass
+def test_empty_list():
+    """Checks that using an empty list
+    raises an ValueError
+    """
+    with pytest.raises(ValueError):
+        median([])
 
 
 def test_original_data_unchanged():
     """Checks that the original data is unchanged
     """
     data = [1, 2, 3, 4, 5]
-    med_data = median(data)
+    median(data)
 
     assert data == [1, 2, 3, 4, 5]
 
