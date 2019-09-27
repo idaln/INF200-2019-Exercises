@@ -50,20 +50,27 @@ def test_differently_ordered_elements():
     assert median([2, 4, 5, 3, 1]) == 3
 
 
-def empty_list():
-    """
-    """
+# def test_empty_list(self):
+  #  """Checks that using an empty list
+  #  raises an ValueError
+  #  """
+  #  self.assertRaises(IndexError, median([]))
+  #  pass
 
 
+def test_original_data_unchanged():
+    """Checks that the original data is unchanged
+    """
+    data = [1, 2, 3, 4, 5]
+    med_data = median(data)
 
-def original_data_unchanged():
-    """
-    """
-    pass
+    assert data == [1, 2, 3, 4, 5]
 
 
 def test_tuples():
     """
     """
     pass
+
+
 
