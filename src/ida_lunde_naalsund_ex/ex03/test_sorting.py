@@ -12,17 +12,17 @@ def bubble_sort(data):
     :param data: List or tuple containing numbers.
     :return: Sorted list.
     """
-    copy = list(data)
-    n = len(copy)
+    list_data = list(data)
+    n = len(list_data)
 
     while n > 0:
         i = 1
         while i < n:
-            if copy[i] < copy[i-1]:
-                copy[i], copy[i-1] = copy[i-1], copy[i]
+            if list_data[i] < list_data[i-1]:
+                list_data[i], list_data[i-1] = list_data[i-1], list_data[i]
             i += 1
         n -= 1
-    return copy
+    return list_data
 
 
 def test_empty():
@@ -66,10 +66,9 @@ def test_original_unchanged():
     Now data shall still contain [3, 2, 1].
     """
     data = [3, 2, 1]
-    sorted_data = bubble_sort(data)
+    bubble_sort(data)
 
     assert data == [3, 2, 1]
-    # Må vi bruke sorted_data til noko?
 
 
 def test_sort_sorted():
@@ -111,4 +110,4 @@ def test_sorting():
     assert bubble_sort([2, 6, 3, 8, 1, 5, 4]) == [1, 2, 3, 4, 5, 6, 8]
     assert bubble_sort(['2', '4', '1', '5']) == ['1', '2', '4', '5']
     assert bubble_sort(['b', 'h', 'j', 'a']) == ['a', 'b', 'h', 'j']
-    assert bubble_sort(['good', 'day', 'my', 'lord']) == ['day', 'good', 'lord', 'my']
+    assert bubble_sort(['you', 'are', 'cool']) == ['are', 'cool', 'you']
