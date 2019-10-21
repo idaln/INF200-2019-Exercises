@@ -17,8 +17,14 @@ class LCGrand:
 
 
 class ListRand:
-    def __init__(self):
-        pass
+    def __init__(self, list_of_numbers):
+        self.list_of_numbers = list_of_numbers
+        self.counter = 0
 
     def rand(self):
-        pass
+        if self.counter == len(self.list_of_numbers):
+            raise RuntimeError
+        else:
+            random_number = self.list_of_numbers[self.counter]
+            self.counter += 1
+            return random_number
