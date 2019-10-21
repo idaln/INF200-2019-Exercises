@@ -5,8 +5,8 @@ __email__ = 'hans.ekkehard.plesser@nmbu.no'
 
 
 import pytest
-from myrand import LCGrand
-from walker import Walker
+from .myrand import LCGRand, ListRand
+from .walker import Walker
 
 
 def test_lcg():
