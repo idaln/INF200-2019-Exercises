@@ -9,11 +9,26 @@ import random as rd
 
 class Walker:
     def __init__(self, x0, h):
+        """
+
+        Parameters
+        ----------
+        x0: int
+            Starting position
+        h: int
+            Home position
+        """
         self.x = x0
         self.h = h
         self.steps = 0
 
     def move(self):
+        """
+        Makes walker move one step left or right. Whether he walks left or
+        right is determined by the random number generated is 0 or 1,
+        accordingly.
+
+        """
         if rd.randint(0, 1) == 0:
             self.x -= 1
         else:
@@ -22,15 +37,41 @@ class Walker:
         self.steps += 1
 
     def is_at_home(self):
+        """
+
+        Returns:
+        -------
+        True or False
+        True if the walker is home, False otherwise.
+
+        """
         return Walker.get_position(self) == self.h
 
     def get_position(self):
+        """
+
+        Returns: Current position
+        -------
+
+        """
         return self.x
 
     def get_steps(self):
+        """
+
+        Returns: Current number of steps
+        -------
+
+        """
         return self.steps
 
     def walking_process(self):
+        """
+
+        Returns: Number of steps needed for walker to get home.
+        -------
+
+        """
         while Walker.is_at_home(self) is False:
             Walker.move(self)
         return Walker.get_steps(self)

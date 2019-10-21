@@ -6,6 +6,14 @@ __email__ = "idna@nmbu.no"
 
 class LCGRand:
     def __init__(self, seed):
+        """
+        Initializes class with constants a and m.
+
+        Parameters
+        ----------
+        seed: Random seed given by user
+
+        """
         self.a = 7**5
         self.m = 2**31-1
         self.seed = seed
@@ -27,6 +35,13 @@ class LCGRand:
 
 class ListRand:
     def __init__(self, list_of_numbers):
+        """
+        Initializes function with a counter.
+
+        Parameters
+        ----------
+        list_of_numbers: List of numbers given by user
+        """
         self.list_of_numbers = list_of_numbers
         self.counter = 0
 
