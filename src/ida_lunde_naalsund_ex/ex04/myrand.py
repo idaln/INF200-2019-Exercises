@@ -11,6 +11,15 @@ class LCGRand:
         self.seed = seed
 
     def rand(self):
+        """
+        Creates random number using the linear congruential
+        generator function.
+
+        Returns
+        -------
+        random_number
+
+        """
         random_number = self.a * self.seed % self.m
         self.seed = random_number
         return random_number
@@ -22,6 +31,16 @@ class ListRand:
         self.counter = 0
 
     def rand(self):
+        """
+        Return numbers in list taken as input, starting with the first
+        number. Moves on to the next number as the rand function is called
+        again.  
+
+        Returns
+        -------
+        random_number
+
+        """
         if self.counter == len(self.list_of_numbers):
             raise RuntimeError
         else:
