@@ -17,7 +17,7 @@ class LCGRand:
 
         Returns
         -------
-        random_number
+        random_number: int
 
         """
         random_number = self.a * self.seed % self.m
@@ -34,11 +34,11 @@ class ListRand:
         """
         Return numbers in list taken as input, starting with the first
         number. Moves on to the next number as the rand function is called
-        again.  
+        again.
 
         Returns
         -------
-        random_number
+        random_number: int
 
         """
         if self.counter == len(self.list_of_numbers):
