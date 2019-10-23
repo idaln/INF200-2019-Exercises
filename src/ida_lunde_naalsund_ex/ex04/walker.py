@@ -8,15 +8,27 @@ import random as rd
 
 
 class Walker:
+    """
+    Simulates the journey of a walker on his way home in a
+    one dimensional world.
+
+    Attributes
+    ----------
+    x : int
+        The walkers current position
+    steps: int
+        Number of steps needed for walker to achieve current position
+
+    """
     def __init__(self, x0, h):
         """
-
         Parameters
         ----------
         x0: int
             Starting position
         h: int
             Home position
+
         """
         self.x = x0
         self.h = h
@@ -25,7 +37,7 @@ class Walker:
     def move(self):
         """
         Makes walker move one step left or right. Whether he walks left or
-        right is determined by the random number generated is 0 or 1,
+        right is determined by whether the random number generated is 0 or 1,
         accordingly.
 
         """
@@ -38,11 +50,12 @@ class Walker:
 
     def is_at_home(self):
         """
+        Checks if the walker is home.
 
         Returns:
         -------
-        True or False
-        True if the walker is home, False otherwise.
+        bool
+            True if the walker is home, False otherwise.
 
         """
         return Walker.get_position(self) == self.h
@@ -50,8 +63,10 @@ class Walker:
     def get_position(self):
         """
 
-        Returns: Current position
+        Returns:
         -------
+        x : int
+            Current position
 
         """
         return self.x
@@ -59,8 +74,10 @@ class Walker:
     def get_steps(self):
         """
 
-        Returns: Current number of steps
+        Returns
         -------
+        steps : int
+            Current number of steps
 
         """
         return self.steps
@@ -68,8 +85,10 @@ class Walker:
     def walking_process(self):
         """
 
-        Returns: Number of steps needed for walker to get home.
+        Returns
         -------
+        steps : int
+            Number of steps needed for walker to get home.
 
         """
         while Walker.is_at_home(self) is False:

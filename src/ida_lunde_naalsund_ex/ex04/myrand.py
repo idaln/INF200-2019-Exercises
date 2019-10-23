@@ -5,13 +5,25 @@ __email__ = "idna@nmbu.no"
 
 
 class LCGRand:
+    """
+    Returns random numbers by implementing the linear congruential
+    generator function.
+
+    Attributes
+    ----------
+    a : int
+        Constant given
+
+    m : int
+        Constant given
+
+    """
     def __init__(self, seed):
         """
-        Initializes class with constants a and m.
 
         Parameters
         ----------
-        seed: Random seed given by user
+        seed: Random seed determined by user
 
         """
         self.a = 7**5
@@ -26,6 +38,7 @@ class LCGRand:
         Returns
         -------
         random_number: int
+            Random number generated
 
         """
         random_number = self.a * self.seed % self.m
@@ -34,22 +47,38 @@ class LCGRand:
 
 
 class ListRand:
+    """
+    Returns numbers in list determined by user.
+
+    Attributes
+    ----------
+    counter : int
+        Number of numbers extracted from list
+
+    """
     def __init__(self, list_of_numbers):
         """
-        Initializes function with a counter.
 
         Parameters
         ----------
-        list_of_numbers: List of numbers given by user
+        list_of_numbers: list
+            List of numbers determined by user
+
         """
-        self.list_of_numbers = list_of_numbers
+        self.list_of_numbers = list(list_of_numbers)
         self.counter = 0
 
     def rand(self):
         """
         Return numbers in list taken as input, starting with the first
-        number. Moves on to the next number as the rand function is called
+        number. Moves on to the next number as the "rand" function is called
         again.
+
+        Raises
+        ------
+        RuntimeError
+            Raises the error when all numbers in the list have been
+            returned
 
         Returns
         -------
@@ -57,7 +86,7 @@ class ListRand:
 
         """
         if self.counter == len(self.list_of_numbers):
-            raise RuntimeError
+            raise RuntimeError('All numbers in list have been returned')
         else:
             random_number = self.list_of_numbers[self.counter]
             self.counter += 1
