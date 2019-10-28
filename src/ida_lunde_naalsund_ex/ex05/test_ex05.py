@@ -6,9 +6,9 @@ Acceptance test suite for EX05.
 Your code should pass these tests before submission.
 """
 
-from walker_sim import Walker, Simulation
-from bounded_sim import BoundedWalker, BoundedSimulation
-from myrand import LCGRand
+from .walker_sim import Walker, Simulation
+#from bounded_sim import BoundedWalker, BoundedSimulation
+#from myrand import LCGRand
 
 __author__ = "Hans Ekkehard Plesser"
 __email__ = "hans.ekkehard.plesser@nmbu.no"
@@ -50,7 +50,7 @@ def test_walker():
     """Test that Walker class can be used as required."""
 
     start, home = 10, 20
-    w = Walker(start, home)
+    w = Walker(start, home, seed=None)
     assert not w.is_at_home()
     w.move()
     assert w.get_position() != start
