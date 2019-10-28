@@ -41,6 +41,7 @@ class Walker:
         accordingly.
 
         """
+        random.seed(self.seed)
         if random.randint(0, 1) == 0:
             self.position -= 1
         else:
@@ -113,7 +114,7 @@ class Simulation:
         self.start = start
         self.home = home
         self.seed = seed
-        self.walker = Walker(self.start, self.home)
+        self.walker = Walker(self.start, self.home, self.seed)
 
     def single_walk(self):
         """
@@ -146,3 +147,20 @@ class Simulation:
             list_of_steps.append(Simulation.single_walk(self))
 
         return list_of_steps
+
+
+if __name__ == '__main__':
+
+    walker_simu = Simulation(3, 5, 1345)
+    print(walker_simu.run_simulation(20))
+
+
+#    num_sim = 20
+
+#    start = [0, 0, 0, 10, 10, 10]
+#    home = [10, 10, 10, 0, 0, 0]
+#    seed = [12345, 12345, 54321, 12345, 12345, 54321]
+
+#    for _ in range(len(start)):
+#        walk_simulation = Simulation(start[_], home[_], seed[_])
+#        print(walk_simulation.run_simulation(num_sim))
