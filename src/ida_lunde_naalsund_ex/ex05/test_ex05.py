@@ -68,3 +68,24 @@ def test_simulation():
     assert len(r) == n_sim
     assert all(rs > 0 for rs in r)
 
+def test_bounded_walker():
+    """Test that BoundedWalker class can be used as required."""
+
+    start, home, left, right = 10, 20, 0, 30
+    w = BoundedWalker(start, home, left, right)
+    assert not w.is_at_home()
+    w.move()
+    assert w.get_position() != start
+    w.move()
+    assert w.get_steps() == 2
+
+
+def test_bounded_simulation():
+    """Test that BoundedSimulation class can be used as required."""
+
+    start, home, left, right, seed, n_sim = 10, 20, 0, 30, 12345, 5
+    s = BoundedSimulation(start, home, seed, left, right)
+    assert s.single_walk() > 0
+    r = s.run_simulation(n_sim)
+    assert len(r) == n_sim
+    assert all(rs > 0 for rs in r)
