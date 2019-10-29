@@ -4,6 +4,7 @@ __author__ = "Ida Lunde Naalsund"
 __email__ = "idna@nmbu.no"
 
 from .walker_sim import Walker, Simulation
+import random
 
 
 class BoundedWalker(Walker):
@@ -29,8 +30,28 @@ class BoundedWalker(Walker):
 
         super().__init__(self.start, self.home)
 
+    def bounded_move(self):
+        """
+        Makes walker move one step left or right. Whether he walks left or
+        right is determined by whether the random number generated is 0 or 1,
+        accordingly. Walker is restricted by left and right limit
 
-class BoundedSimulation(Walker):
+        """
+
+        if random.randint(0, 1) == 0:
+            if self.position > self.left_limit:
+                self.position -= 1
+                self.steps += 1
+
+        else:
+            if self.position < self.right_limit:
+                self.position += 1
+                self.steps += 1
+
+        self.steps += 1
+
+
+class BoundedSimulation(Simulation):
     def __init__(self, start, home, seed, left_limit, right_limit):
         """
         Initialise the simulation
@@ -54,4 +75,9 @@ class BoundedSimulation(Walker):
         self.left_limit = left_limit
         self.right_limit = right_limit
 
-        super().__init__(start, home)
+        super().__init__(start, home, seed)
+
+
+if __name__ == '__main__':
+    walk = Walker(0, 5)
+    walk.walking_process()
