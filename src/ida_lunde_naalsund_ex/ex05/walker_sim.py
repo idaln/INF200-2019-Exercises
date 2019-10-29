@@ -19,7 +19,7 @@ class Walker:
         Number of steps needed for walker to achieve current position
 
     """
-    def __init__(self, start, home, seed):
+    def __init__(self, start, home):
         """
         Parameters
         ----------
@@ -31,7 +31,7 @@ class Walker:
         """
         self.position = start
         self.home = home
-        self.seed = seed
+        #self.seed = seed
         self.steps = 0
 
     def move(self):
@@ -41,7 +41,7 @@ class Walker:
         accordingly.
 
         """
-        random.seed(self.seed)
+
         if random.randint(0, 1) == 0:
             self.position -= 1
         else:
@@ -59,7 +59,7 @@ class Walker:
             True if the walker is home, False otherwise.
 
         """
-        return Walker.get_position(self) == self.home
+        return self.get_position() == self.home
 
     def get_position(self):
         """
@@ -113,8 +113,8 @@ class Simulation:
         """
         self.start = start
         self.home = home
-        self.seed = seed
-        self.walker = Walker(self.start, self.home, self.seed)
+        self.seed = random.seed(seed)
+        self.walker = Walker(self.start, self.home)
 
     def single_walk(self):
         """
@@ -141,10 +141,11 @@ class Simulation:
         list[int]
             List with the number of steps per walk
         """
+        self.seed
         list_of_steps = []
 
         for walk in range(num_walks):
-            list_of_steps.append(Simulation.single_walk(self))
+            list_of_steps.append(self.single_walk())
 
         return list_of_steps
 
