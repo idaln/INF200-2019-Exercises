@@ -151,7 +151,7 @@ class Simulation:
 
 if __name__ == '__main__':
 
-    walker_simu = Simulation(3, 5, 1345)
+    walker_simu = Simulation(3, 5, 12345)
     print(walker_simu.run_simulation(20))
 
 
