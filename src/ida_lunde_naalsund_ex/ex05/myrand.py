@@ -42,8 +42,8 @@ class LCGRand:
         return self._hidden_state
 
     def random_sequence(self, length):
-        pass
-        #return RandIter(self, length)
+
+        return RandIter(self, length)
 
     def infinite_random_sequence(self):
         """
@@ -70,7 +70,7 @@ class RandIter:
             The number of random numbers to generate
         """
 
-        self.generator = random_number_generator
+        self.generator = random_number_generator.rand # Her definerar vi den tilfeldige funksjonen
         self.length = length
         self.num_generated_numbers = None
 
@@ -89,7 +89,7 @@ class RandIter:
         """
         if self.num_generated_numbers is not None:
             raise RuntimeError('iter can only be called once on same '
-                                'RandIter object')
+                               'RandIter object')
 
         self.num_generated_numbers = 0
         return self
@@ -119,10 +119,11 @@ class RandIter:
 
         self.num_generated_numbers += 1
 
-        return self.generator
+        return self.generator()
 
 
 if __name__ == '__main__':
-    LCG_generator = LCGRand(1)
-    print(LCG_generator.rand())
-    print(LCG_generator.rand())
+    rand_generator = LCGRand(1)
+    for rand in rand_generator.random_sequence(10):
+        print(rand)
+
