@@ -31,7 +31,6 @@ class Walker:
         """
         self.position = start
         self.home = home
-        #self.seed = seed
         self.steps = 0
 
     def move(self):
@@ -141,27 +140,21 @@ class Simulation:
         list[int]
             List with the number of steps per walk
         """
-        self.seed
-        list_of_steps = []
 
-        for walk in range(num_walks):
-            list_of_steps.append(self.single_walk())
-
-        return list_of_steps
+        return [self.single_walk() for walk in range(num_walks)]
 
 
 if __name__ == '__main__':
 
-    walker_simu = Simulation(3, 5, 12345)
-    print(walker_simu.run_simulation(20))
+    num_sim = 20
 
+    start = [0, 0, 0, 10, 10, 10]
+    home = [10, 10, 10, 0, 0, 0]
+    seed = [12345, 12345, 54321, 12345, 12345, 54321]
 
-#    num_sim = 20
-
-#    start = [0, 0, 0, 10, 10, 10]
-#    home = [10, 10, 10, 0, 0, 0]
-#    seed = [12345, 12345, 54321, 12345, 12345, 54321]
-
-#    for _ in range(len(start)):
-#        walk_simulation = Simulation(start[_], home[_], seed[_])
-#        print(walk_simulation.run_simulation(num_sim))
+    for i in range(len(start)):
+        walk_simulation = Simulation(start[i], home[i], seed[i])
+        print(f' Starting position: {start[i]}, home position: {home[i]},'
+              f' seed: {seed[i]} gives length of walks\n'
+              f'{walk_simulation.run_simulation(num_sim)}'
+        )
