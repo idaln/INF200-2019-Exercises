@@ -50,7 +50,7 @@ def test_walker():
     """Test that Walker class can be used as required."""
 
     start, home = 10, 20
-    w = Walker(start, home, seed=None)
+    w = Walker(start, home)
     assert not w.is_at_home()
     w.move()
     assert w.get_position() != start
