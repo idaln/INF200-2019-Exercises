@@ -15,8 +15,6 @@ class LCGRand:
     congruence_class : int
         Constant given in ex. text, necessary for generation.
     """
-    slope = 7**5
-    congruence_class = 2**31 - 1
 
     def __init__(self, seed):
         """Initialises the class with given constants a and m.
@@ -27,6 +25,8 @@ class LCGRand:
             The seed that the generating is based on.
         """
         self._hidden_state = seed
+        self.slope = 7 ** 5
+        self.congruence_class = 2 ** 31 - 1
 
     def rand(self):
         """Generates a single random number based on a seed given by the user.
@@ -70,7 +70,7 @@ class RandIter:
             The number of random numbers to generate
         """
 
-        self.generator = random_number_generator.rand # Her definerar vi den tilfeldige funksjonen
+        self.generator = random_number_generator.rand
         self.length = length
         self.num_generated_numbers = None
 
