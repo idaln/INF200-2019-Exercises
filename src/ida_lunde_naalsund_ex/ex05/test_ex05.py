@@ -6,9 +6,9 @@ Acceptance test suite for EX05.
 Your code should pass these tests before submission.
 """
 
-from .walker_sim import Walker, Simulation
-from .bounded_sim import BoundedWalker, BoundedSimulation
-from .myrand import LCGRand
+from walker_sim import Walker, Simulation
+from bounded_sim import BoundedWalker, BoundedSimulation
+from myrand import LCGRand
 
 __author__ = "Hans Ekkehard Plesser"
 __email__ = "hans.ekkehard.plesser@nmbu.no"
