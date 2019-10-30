@@ -82,19 +82,6 @@ class Walker:
         """
         return self.steps
 
-    def walking_process(self):
-        """
-
-        Returns
-        -------
-        steps : int
-            Number of steps needed for walker to get home.
-
-        """
-        while not self.is_at_home():
-            self.move()
-        return self.get_steps()
-
 
 class Simulation:
     def __init__(self, start, home, seed):
@@ -114,7 +101,6 @@ class Simulation:
         self.home = home
         random.seed(seed)
 
-
     def single_walk(self):
         """
         Simulate single walk from start to home, returning number of steps.
@@ -125,7 +111,9 @@ class Simulation:
             The number of steps taken
         """
         walker = Walker(self.start, self.home)
-        return walker.walking_process()
+        while not walker.is_at_home():
+            walker.move()
+        return walker.get_steps()
 
     def run_simulation(self, num_walks):
         """
