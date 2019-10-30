@@ -7,13 +7,6 @@ __email__ = "idna@nmbu.no"
 class LCGRand:
     """Implementation of a linear congruential generator
     that returns random numbers.
-
-    Attributes
-    ----------
-    slope : int
-        Constant given in ex. text, necessary for generation.
-    congruence_class : int
-        Constant given in ex. text, necessary for generation.
     """
 
     def __init__(self, seed):
