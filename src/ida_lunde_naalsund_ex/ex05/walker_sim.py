@@ -137,13 +137,13 @@ if __name__ == '__main__':
 
     num_sim = 20
 
-    start = [0, 0, 0, 10, 10, 10]
-    home = [10, 10, 10, 0, 0, 0]
-    seed = [12345, 12345, 54321, 12345, 12345, 54321]
+    start_pos = [0, 0, 0, 10, 10, 10]
+    home_pos = [10, 10, 10, 0, 0, 0]
+    seed_val = [12345, 12345, 54321, 12345, 12345, 54321]
 
-    for i in range(len(start)):
-        walk_simulation = Simulation(start[i], home[i], seed[i])
-        print(f' Starting position: {start[i]}, home position: {home[i]},'
-              f' seed: {seed[i]} gives length of walks\n'
+    for i in range(len(start_pos)):
+        walk_simulation = Simulation(start_pos[i], home_pos[i], seed_val[i])
+        print(f' Starting position: {start_pos[i]}, home position:'
+              f' {home_pos[i]}, seed: {seed_val[i]} gives length of walks\n'
               f'{walk_simulation.run_simulation(num_sim)}'
-        )
+              )
