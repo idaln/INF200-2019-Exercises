@@ -68,6 +68,7 @@ def test_simulation():
     assert len(r) == n_sim
     assert all(rs > 0 for rs in r)
 
+
 def test_bounded_walker():
     """Test that BoundedWalker class can be used as required."""
 
