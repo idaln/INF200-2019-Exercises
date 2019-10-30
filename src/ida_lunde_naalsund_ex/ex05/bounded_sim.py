@@ -34,13 +34,11 @@ class BoundedWalker(Walker):
         """
         Makes walker move one step left or right. Whether he walks left or
         right is determined by whether the random number generated is 0 or 1,
-        accordingly. Walker is restricted by left and right limit
-
+        accordingly. Walker is restricted by left and right limit.
         """
         if random.randint(0, 1) == 0:
             if self.position > self.left_limit:
                 self.position -= 1
-
 
         else:
             if self.position < self.right_limit:
@@ -84,23 +82,26 @@ class BoundedSimulation(Simulation):
         """
         bounded_walker = BoundedWalker(self.start, self.home, self.left_limit,
                                        self.right_limit)
+        while not bounded_walker.is_at_home():
+            bounded_walker.move()
+        return bounded_walker.get_steps()
 
-        return bounded_walker.walking_process()
 
 if __name__ == '__main__':
 
     num_sim = 20
 
-    start = 0
-    home = 20
-    seed = 1
-    left_limit = [0, -10, -100, -1000, -10000]
-    right_limit = 20
+    start_pos = 0
+    home_pos = 20
+    seed_val = 1
+    left_lim = [0, -10, -100, -1000, -10000]
+    right_lim = 20
 
-    for limit in left_limit:
-        walk_simulation = BoundedSimulation(start, home, seed,
-                                            limit, right_limit)
-        sim = Simulation(start, home, seed)
-        print(f' Starting position: {start}, home position: {home},'
-              f' seed: {seed} gives length of walks\n'
+    print(f' Starting position: {start_pos}, home position: {home_pos}, '
+          f'seed: {seed_val}, right limit: {right_lim}')
+
+    for limit in left_lim:
+        walk_simulation = BoundedSimulation(start_pos, home_pos, seed_val,
+                                            limit, right_lim)
+        print(f'Left limit: {limit} \n'
               f'{walk_simulation.run_simulation(num_sim)}')
