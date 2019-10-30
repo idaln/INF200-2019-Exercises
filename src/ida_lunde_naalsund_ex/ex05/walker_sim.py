@@ -91,9 +91,9 @@ class Walker:
             Number of steps needed for walker to get home.
 
         """
-        while not Walker.is_at_home(self):
-            Walker.move(self)
-        return Walker.get_steps(self)
+        while not self.is_at_home():
+            self.move()
+        return self.get_steps()
 
 
 class Simulation:
@@ -112,7 +112,7 @@ class Simulation:
         """
         self.start = start
         self.home = home
-        self.seed = random.seed(seed)
+        random.seed(seed)
 
 
     def single_walk(self):
@@ -142,7 +142,7 @@ class Simulation:
             List with the number of steps per walk
         """
 
-        return [self.single_walk() for walk in range(num_walks)]
+        return [self.single_walk() for _ in range(num_walks)]
 
 
 if __name__ == '__main__':
