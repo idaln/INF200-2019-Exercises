@@ -25,7 +25,9 @@ def sigmoid(z):
         Transformed input.
     """
     # Your code here
-    pass
+
+    sigmoidal_transformed_x = 1 / (1 + np.exp(-z))
+    return sigmoidal_transformed_x
 
 
 def predict_proba(coef, X):
@@ -50,7 +52,9 @@ def predict_proba(coef, X):
         The predicted class probabilities.
     """
     # Your code here
-    pass
+
+    p = sigmoid(np.dot(X, coef))
+    return p
 
 
 def logistic_gradient(coef, X, y):
