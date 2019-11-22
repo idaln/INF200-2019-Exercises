@@ -84,7 +84,9 @@ def logistic_gradient(coef, X, y):
         logistic regression model.
     """
     # Your code here
-    pass
+
+    gradient = np.dot(X.T, (y - predict_proba(coef, X)))
+    return gradient
 
 
 class LogisticRegression(BaseEstimator, ClassifierMixin):
