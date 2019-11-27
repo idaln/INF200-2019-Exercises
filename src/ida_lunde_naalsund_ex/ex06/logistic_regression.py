@@ -166,7 +166,8 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
             True if the convergence criteria above is met, False otherwise.
         """
         # Your code here
-        pass
+        gradient = logistic_gradient(coef, X, y)
+        return np.linalg.norm(gradient) < self.tol
 
     def _fit_gradient_descent(self, coef, X, y):
         r"""Fit the logisitc regression model to the data given initial weights
