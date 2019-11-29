@@ -129,19 +129,12 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
         self.random_state = random_state
 
     def _has_converged(self, coef, X, y):
-        r"""Whether the gradient descent algorithm has converged.
-        Returns True if the norm of the gradient is smaller than ``self.tol``,
-        mathematically, that is
-        .. math::
-            ||\nabla_w L(\mathbf{w}^{(k)}; X, \mathbf{y})|| < T
-        where :math:`\nabla_w L` is the gradient of the loss function,
-        :math:`|| \mathbf{v} ||` is the norm of the vector :math:`\mathbf{v}`,
-        :math:`\mathbf{w}^{(k)}` is the weights at iteration ``k``, and
-        :math:`T` is the convergence tolerance (``self.tol``).
+        """Whether the gradient descent algorithm has converged.
+        Returns True if the norm of the gradient is smaller than ``self.tol``.
         Parameters
         ----------
         coef : np.ndarray(shape=(r,))
-            The weight vector, :math:`\mathbf{w}^{(k)}`
+            The weight vector
         X : np.ndarray(shape=(n, r))
             The data matrix (aka design or measurement matrix)
         y : np.ndarray(shape=(n,))
