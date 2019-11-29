@@ -10,11 +10,9 @@ from sklearn.utils import check_random_state, check_X_y
 
 
 def sigmoid(z):
-    r"""Perform a logistic transform on the input.
+    """Perform a logistic transform on the input.
     This function applies the sigmoidal function element-wise to all
-    elements of `z`. The sigmoidal function is on the following form:
-    .. math::
-        \frac{1}{1 + exp(-\mathbf{z})}.
+    elements of `z`.
     Parameters
     ----------
     z : np.ndarray
@@ -161,16 +159,9 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
         return np.linalg.norm(gradient) < self.tol
 
     def _fit_gradient_descent(self, coef, X, y):
-        r"""Fit the logisitc regression model to the data given initial weights
+        """Fit the logistic regression model to the data given initial weights
         Gradient descent works by iteratively applying the following update
-        rule
-        .. math::
-            \mathbf{w}^{(k)} \gets \mathbf{w}^{(k-1)} - \eta \nabla L(\mathbf{w}^{(k-1)}; X, \mathbf{y}),
-        where :math:`\mathbf{w}^{(k)}` is the coefficient vector at iteration
-        ``k``, :math:`\mathbf{w}^{(k-1)}` is the coefficient vector at
-        iteration k-1, :math:`\eta` is the learning rate and
-        :math:`\nabla L(\mathbf{w}^{(k-1)}; X, \mathbf{y})` is the gradient of
-        the loss function at iteration k-1.
+        rule.
         The iterative algorithm should be performed for at most
         ``self.max_iter`` iterations, or until the convergence criteria is
         reached.
