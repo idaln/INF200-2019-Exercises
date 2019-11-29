@@ -22,10 +22,8 @@ def sigmoid(z):
     sigmoidal_transformed_z : np.ndarray
         Transformed input.
     """
-    # Your code here
 
-    sigmoidal_transformed_x = 1 / (1 + np.exp(-z))
-    return sigmoidal_transformed_x
+    return 1 / (1 + np.exp(-z))
 
 
 def predict_proba(coef, X):
