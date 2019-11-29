@@ -70,10 +70,8 @@ def logistic_gradient(coef, X, y):
         The gradient of the cross entropy loss related to the linear
         logistic regression model.
     """
-    # Your code here
 
-    gradient = np.dot(X.T, (y - predict_proba(coef, X)))
-    return gradient
+    return np.dot(X.T, (y - predict_proba(coef, X)))
 
 
 class LogisticRegression(BaseEstimator, ClassifierMixin):
@@ -124,7 +122,8 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
         learning_rate : float (default=0.01)
             The step-size for the gradient descent updates.
         random_state : np.random.random_state or int or None (default=None)
-            A numpy random state object or a seed for a numpy random state object.
+            A numpy random state object or a seed for a numpy random state
+            object.
         """
         self.max_iter = max_iter
         self.tol = tol
@@ -185,7 +184,6 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
             _iter += 1
 
         return coef
-
 
     def fit(self, X, y):
         """Fit a logistic regression model to the data.
@@ -268,6 +266,9 @@ if __name__ == "__main__":
     coef = np.random.standard_normal(5)
     y = predict_proba(coef, X) > 0.5
 
+    log_reg = LogisticRegression()
+    lr_model = log_reg.fit(X, y)
+
     # Fit a logistic regression model to the X and y vector
     # Fill in your code here.
     # Create a logistic regression object and fit it to the dataset
@@ -276,4 +277,3 @@ if __name__ == "__main__":
     print(f"Accuracy: {lr_model.score(X, y)}")
     print(f"True coefficients: {coef}")
     print(f"Learned coefficients: {lr_model.coef_}")
-
