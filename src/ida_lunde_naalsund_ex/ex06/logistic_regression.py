@@ -153,7 +153,7 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
         has_converged : bool
             True if the convergence criteria above is met, False otherwise.
         """
-        # Your code here
+
         gradient = logistic_gradient(coef, X, y)
         return np.linalg.norm(gradient) < self.tol
 
